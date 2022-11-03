@@ -1,463 +1,81 @@
 <?php
-function display_board()
+
+function display_board($tableCell)
 {
-    echo "   |   |   \n";
-    echo "---+---+---\n";
-    echo "   |   |   \n";
-    echo "---+---+---\n";
-    echo "   |   |   \n";
+    echo " {$tableCell[0][0]} | {$tableCell[0][1]} | {$tableCell[0][2]} \n";
+    echo "---+---+---" . PHP_EOL;
+    echo " {$tableCell[1][0]} | {$tableCell[1][1]} | {$tableCell[1][2]} \n";
+    echo "---+---+---" . PHP_EOL;
+    echo " {$tableCell[2][0]} | {$tableCell[2][1]} | {$tableCell[2][2]} \n";
 }
-display_board();
 
-$cell =
-    [
-        [0, 1, 2, 3, 4, 5, 6, 7, 8],
-        ["X", "O"]
-    ];
+$table = [
+    [" ", " ", " "],
+    [" ", " ", " "],
+    [" ", " ", " "],
+];
 
-$table = ["_", "_", "_", "_", "_", "_", "_", "_", "_", ];
-
+$player = " ";
 $tries = 0;
+$gameStatus = true;
 
-for($i=0; $i < count($table); $i++) {
-    if ($tries % 2 === 0) {
-        $PlayerRows = (int)readline("Enter 'X' position (rows) : ");
-        $PlayerColumns = (int)readline("Enter 'X' position (columns) : ");
+while(true){
+    display_board($table);
+    $rowsColumns = readline("set your choice (row, column)");
+    $userPosition = explode(" ", $rowsColumns);
 
-        if ($PlayerRows == 0 && $PlayerColumns == 0){
-            if($table[$cell[0][0]]=="_"){
-                $table[$cell[0][0]] = $cell[1][0];
-                $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if ($PlayerRows == 0 && $PlayerColumns == 1){
-            if($table[$cell[0][1]]=="_"){
-                $table[$cell[0][1]] = $cell[1][0];
-                $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if ($PlayerRows == 0 && $PlayerColumns == 2){
-            if($table[$cell[0][2]]=="_"){
-                $table[$cell[0][2]] = $cell[1][0];
-                $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if ($PlayerRows == 1 && $PlayerColumns == 0){
-            if($table[$cell[0][3]]=="_"){
-                $table[$cell[0][3]] = $cell[1][0];
-                 $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if ($PlayerRows == 1 && $PlayerColumns == 1){
-            if($table[$cell[0][4]]=="_"){
-                $table[$cell[0][4]] = $cell[1][0];
-                 $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if ($PlayerRows == 1 && $PlayerColumns == 2){
-            if($table[$cell[0][5]]=="_"){
-                $table[$cell[0][5]] = $cell[1][0];
-                 $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if ($PlayerRows == 2 && $PlayerColumns == 0){
-            if($table[$cell[0][6]]=="_"){
-                $table[$cell[0][6]] = $cell[1][0];
-                 $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if ($PlayerRows == 2 && $PlayerColumns == 1){
-            if($table[$cell[0][7]]=="_"){
-                $table[$cell[0][7]] = $cell[1][0];
-                 $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if ($PlayerRows == 2 && $PlayerColumns == 2){
-            if($table[$cell[0][8]]=="_"){
-                $table[$cell[0][8]] = $cell[1][0];
-                 $tries++;
-            }
-            else
-                echo "Cell is already filled" . PHP_EOL;
-        }
-
-        if($table[0]=="X"){
-            if($table[1]=="X"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[2]=="X"){
-                    echo "X player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[0]=="X"){
-            if($table[3]=="X"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[6]=="X"){
-                    echo "X player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[3]=="X"){
-            if($table[4]=="X"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[5]=="X"){
-                    echo "X player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[1]=="X"){
-            if($table[4]=="X"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[7]=="X"){
-                    echo "X player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[2]=="X"){
-            if($table[5]=="X"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[8]=="X"){
-                    echo "X player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[6]=="X"){
-            if($table[7]=="X"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[8]=="X"){
-                    echo "X player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[0]=="X"){
-            if($table[4]=="X"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[8]=="X"){
-                    echo "X player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[2]=="X"){
-            if($table[4]=="X"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[6]=="X"){
-                    echo "X player won";
-                    exit;
-                }
-            }
-        }
-
-        if($tries==9) {
-            echo "Game is tie";
-            exit;
-        }
-
-        for($j=1; $j <= count($table); $j++) {
-            if($j % 3 == 0)
-                echo json_encode($table[$j-1]). PHP_EOL;
-            else
-                echo json_encode($table[$j-1]);
-        }
+    if (count($userPosition) !== 2) {
+        echo "Invalid input" . PHP_EOL;
+        continue;
     }
 
- // ---------------------------------------------------------------------------------- //
- // ---------------------------------------------------------------------------------- //
+    $player = ($tries % 2 == 0) ? "X" : "O";
 
-    else {
+    if($table[$userPosition[0]][$userPosition[1]]  == " "){
+        $table[$userPosition[0]][$userPosition[1]]=$player;
+        $tries++;
+    }
+    else
+        echo "Filled cell" . PHP_EOL;
 
-        $PlayerRows = (int)readline("Enter 'O' position (rows) : ");
-        $PlayerColumns = (int)readline("Enter 'O' position (columns) : ");
-
-    if ($PlayerRows == 0 && $PlayerColumns == 0){
-        if($table[$cell[0][0]]=="_"){
-            $table[$cell[0][0]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Aiznemts lauks" . PHP_EOL;
+    if($table[0][0] !== " " && $table[0][0] == $table[0][1] && $table[0][1]==$table[0][2]){
+        echo $player . " player win\n";
+        exit;
     }
 
-    if ($PlayerRows == 0 && $PlayerColumns == 1){
-        if($table[$cell[0][1]]=="_"){
-            $table[$cell[0][1]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Cell is already filled" . PHP_EOL;
+    if($table[1][0] !== " " && $table[1][0] == $table[1][1] && $table[1][1]==$table[1][2]){
+        echo $player . " player win\n";
+        exit;
+    }
+    if($table[2][0] !== " " && $table[2][0] == $table[2][1] && $table[2][1]==$table[2][2]){
+        echo $player . " player win\n";
+        exit;
+    }
+    if($table[0][0] !== " " && $table[0][0] == $table[1][0] && $table[1][0]==$table[2][0]){
+        echo $player . " player win\n";
+        exit;
+    }
+    if($table[0][1] !== " " && $table[0][1] == $table[1][1] && $table[1][1]==$table[2][1]){
+        echo $player . " player win\n";
+        exit;
+    }
+    if($table[0][2] !== " " && $table[0][2] == $table[1][2] && $table[1][2]==$table[2][2]){
+        echo $player . " player win\n";
+        exit;
+    }
+    if($table[0][0] !== " " && $table[0][0] == $table[1][1] && $table[1][1]==$table[2][2]){
+        echo $player . " player win\n";
+        exit;
+    }
+    if($table[0][2] !== " " && $table[0][2] == $table[1][1] && $table[1][1]==$table[2][0]){
+        echo $player . " player win\n";
+        exit;
     }
 
-    if ($PlayerRows == 0 && $PlayerColumns == 2){
-        if($table[$cell[0][2]]=="_"){
-            $table[$cell[0][2]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Cell is already filled" . PHP_EOL;
+    if($tries==9) {
+        system("clear");
+        display_board($table);
+        echo "Game is tie";
+        exit;
     }
-
-    if ($PlayerRows == 1 && $PlayerColumns == 0){
-        if($table[$cell[0][3]]=="_"){
-            $table[$cell[0][3]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Cell is already filled" . PHP_EOL;
-    }
-
-    if ($PlayerRows == 1 && $PlayerColumns == 1){
-        if($table[$cell[0][4]]=="_"){
-            $table[$cell[0][4]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Cell is already filled" . PHP_EOL;
-    }
-
-    if ($PlayerRows == 1 && $PlayerColumns == 2){
-        if($table[$cell[0][5]]=="_"){
-            $table[$cell[0][5]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Cell is already filled" . PHP_EOL;
-    }
-
-    if ($PlayerRows == 2 && $PlayerColumns == 0){
-        if($table[$cell[0][6]]=="_"){
-            $table[$cell[0][6]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Cell is already filled" . PHP_EOL;
-    }
-
-    if ($PlayerRows == 2 && $PlayerColumns == 1){
-        if($table[$cell[0][7]]=="_"){
-            $table[$cell[0][7]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Cell is already filled" . PHP_EOL;
-    }
-
-    if ($PlayerRows == 2 && $PlayerColumns == 2){
-        if($table[$cell[0][8]]=="_"){
-            $table[$cell[0][8]] = $cell[1][1];
-            $tries++;
-        }
-        else
-            echo "Cell is already filled" . PHP_EOL;
-    }
-
-        if($table[0]=="O"){
-            if($table[1]=="O"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[2]=="O"){
-                    echo "O player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[0]=="O"){
-            if($table[3]=="O"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[6]=="O"){
-                    echo "O player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[3]=="O"){
-            if($table[4]=="O"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[5]=="O"){
-                    echo "O player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[1]=="O"){
-            if($table[4]=="O"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[7]=="O"){
-                    echo "O player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[2]=="O"){
-            if($table[5]=="O"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[8]=="O"){
-                    echo "O player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[6]=="O"){
-            if($table[7]=="O"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[8]=="O"){
-                    echo "O player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[0]=="O"){
-            if($table[4]=="O"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[8]=="O"){
-                    echo "O player won";
-                    exit;
-                }
-            }
-        }
-
-        if($table[2]=="O"){
-            if($table[4]=="O"){
-                for($j=1; $j <= count($table); $j++) {
-                    if($j % 3 == 0)
-                        echo json_encode($table[$j-1]). PHP_EOL;
-                    else
-                        echo json_encode($table[$j-1]);
-                }
-                if($table[6]=="O"){
-                    echo "O player won";
-                    exit;
-                }
-            }
-        }
-
-        if($tries==9) {
-            echo "Game is tie";
-            exit;
-        }
-
-        for($j=1; $j <= count($table); $j++) {
-            if($j % 3 == 0)
-                echo json_encode($table[$j-1]). PHP_EOL;
-            else
-                echo json_encode($table[$j-1]);
-        }
-    }
-};
-
+}
