@@ -30,7 +30,7 @@ for($i=0; $i < count($table); $i++) {
                 $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if ($PlayerRows == 0 && $PlayerColumns == 1){
@@ -39,7 +39,7 @@ for($i=0; $i < count($table); $i++) {
                 $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if ($PlayerRows == 0 && $PlayerColumns == 2){
@@ -48,7 +48,7 @@ for($i=0; $i < count($table); $i++) {
                 $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if ($PlayerRows == 1 && $PlayerColumns == 0){
@@ -57,7 +57,7 @@ for($i=0; $i < count($table); $i++) {
                  $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if ($PlayerRows == 1 && $PlayerColumns == 1){
@@ -66,7 +66,7 @@ for($i=0; $i < count($table); $i++) {
                  $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if ($PlayerRows == 1 && $PlayerColumns == 2){
@@ -75,7 +75,7 @@ for($i=0; $i < count($table); $i++) {
                  $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if ($PlayerRows == 2 && $PlayerColumns == 0){
@@ -84,7 +84,7 @@ for($i=0; $i < count($table); $i++) {
                  $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if ($PlayerRows == 2 && $PlayerColumns == 1){
@@ -93,7 +93,7 @@ for($i=0; $i < count($table); $i++) {
                  $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if ($PlayerRows == 2 && $PlayerColumns == 2){
@@ -102,7 +102,7 @@ for($i=0; $i < count($table); $i++) {
                  $tries++;
             }
             else
-                echo "Aiznemts lauks" . PHP_EOL;
+                echo "Cell is already filled" . PHP_EOL;
         }
 
         if($table[0]=="X"){
@@ -261,7 +261,7 @@ for($i=0; $i < count($table); $i++) {
             $tries++;
         }
         else
-            echo "Aiznemts lauks" . PHP_EOL;
+            echo "Cell is already filled" . PHP_EOL;
     }
 
     if ($PlayerRows == 0 && $PlayerColumns == 2){
@@ -270,7 +270,7 @@ for($i=0; $i < count($table); $i++) {
             $tries++;
         }
         else
-            echo "Aiznemts lauks" . PHP_EOL;
+            echo "Cell is already filled" . PHP_EOL;
     }
 
     if ($PlayerRows == 1 && $PlayerColumns == 0){
@@ -279,7 +279,7 @@ for($i=0; $i < count($table); $i++) {
             $tries++;
         }
         else
-            echo "Aiznemts lauks" . PHP_EOL;
+            echo "Cell is already filled" . PHP_EOL;
     }
 
     if ($PlayerRows == 1 && $PlayerColumns == 1){
@@ -288,7 +288,7 @@ for($i=0; $i < count($table); $i++) {
             $tries++;
         }
         else
-            echo "Aiznemts lauks" . PHP_EOL;
+            echo "Cell is already filled" . PHP_EOL;
     }
 
     if ($PlayerRows == 1 && $PlayerColumns == 2){
@@ -297,7 +297,7 @@ for($i=0; $i < count($table); $i++) {
             $tries++;
         }
         else
-            echo "Aiznemts lauks" . PHP_EOL;
+            echo "Cell is already filled" . PHP_EOL;
     }
 
     if ($PlayerRows == 2 && $PlayerColumns == 0){
@@ -306,7 +306,7 @@ for($i=0; $i < count($table); $i++) {
             $tries++;
         }
         else
-            echo "Aiznemts lauks" . PHP_EOL;
+            echo "Cell is already filled" . PHP_EOL;
     }
 
     if ($PlayerRows == 2 && $PlayerColumns == 1){
@@ -315,7 +315,7 @@ for($i=0; $i < count($table); $i++) {
             $tries++;
         }
         else
-            echo "Aiznemts lauks" . PHP_EOL;
+            echo "Cell is already filled" . PHP_EOL;
     }
 
     if ($PlayerRows == 2 && $PlayerColumns == 2){
@@ -324,7 +324,7 @@ for($i=0; $i < count($table); $i++) {
             $tries++;
         }
         else
-            echo "Aiznemts lauks" . PHP_EOL;
+            echo "Cell is already filled" . PHP_EOL;
     }
 
         if($table[0]=="O"){
