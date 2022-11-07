@@ -1,19 +1,27 @@
 <?php
 
 class NumberSquare {
+    private int $min;
+    private int $max;
 
-    public static function main(): void {
-        $min = readline("Min? ");
-        $max = readline("Max? ");
-
-        for ($i=$min; $i<=$max; $i++){
-            for ($j=$i; $j<= $i+$max-$min; $j++){
-                $temp = $j;
-                if ( $temp > $max ) $temp = $temp  - $max;
-                echo $temp;
-            }
-            echo PHP_EOL;
-        }
+    public function __construct(int $min, int $max)
+    {
+        $this->min = $min;
+        $this->max = $max;
     }
+
+    public  function printSquare(){
+   for ( $i=$this->min; $i<=$this->max; $i++){
+      for ( $j=$i; $j<=$this->max; $j++){
+         echo ($j) . " ";
+      }
+for ( $k=0; $k<$i-$this->min; $k++){
+    echo ($this->min+$k) . " ";
+      }
+     echo PHP_EOL;
+   }
 }
-NumberSquare::main();
+}
+$numbers = new NumberSquare(10,20);
+$numbers->printSquare();
+
