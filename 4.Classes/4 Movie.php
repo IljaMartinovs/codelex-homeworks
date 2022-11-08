@@ -29,3 +29,4 @@ $movies[] = new Movie("Casino Royale", "Eon Productions", "PG­13");
 $movies[]  = new Movie("Glass", "Buena Vista International", "PG­13");
 $movies[] = new Movie ("Spider-Man: Into the Spider-Verse","Columbia Pictures","PG");
 print_r(Movie::GetPG($movies));
+//print_r($movies[0]->GetPG($movies));
