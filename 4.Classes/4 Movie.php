@@ -11,7 +11,7 @@ class Movie
         $this->studio = $studio;
         $this->rating = $rating;
     }
-    public static function GetPG(array $movies): array
+    public function GetPG(array $movies): array
     {
         $rightMovie = [];
         $acceptableRating = "PG";
@@ -28,5 +28,5 @@ $movies = [];
 $movies[] = new Movie("Casino Royale", "Eon Productions", "PG­13");
 $movies[]  = new Movie("Glass", "Buena Vista International", "PG­13");
 $movies[] = new Movie ("Spider-Man: Into the Spider-Verse","Columbia Pictures","PG");
-print_r(Movie::GetPG($movies));
-//print_r($movies[0]->GetPG($movies));
+print_r($movies[0]->GetPG($movies));
+//print_r(Movie::GetPG($movies)); // can use if add -static- in GetPG
