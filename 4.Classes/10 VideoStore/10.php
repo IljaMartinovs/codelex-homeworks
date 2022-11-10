@@ -38,5 +38,3 @@ $store->returnVideo(array_search($video2,$videos));
 $store->returnVideo(array_search($video3,$videos));
 //Show inventory list
 $store->listInventory();
-
-
