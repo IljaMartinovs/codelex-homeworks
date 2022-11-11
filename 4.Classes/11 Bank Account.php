@@ -26,10 +26,10 @@ class Account
         return $this->balance += $money;
     }
 
-    public static function transfer(Account $from, Account $to, float $howMuch): float
+    public static function transfer(Account $from, Account $to, float $howMuch): void
     {
         $from->balance -= $howMuch;
-        return $to->balance += $howMuch;
+        $to->balance += $howMuch;
     }
 }
 
