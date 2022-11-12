@@ -5,11 +5,11 @@ class VideoStore
     private array $movies;
     private array $allMovies;
 
-    public function addVideo(Video $video): void
+    public function addVideo(Video $video, bool $flag=true): void
     {
         $this->movies[] = $video; //Add video as an object to array
         $this->allMovies[] = $video;
-        $video->checkOut(); //When we add video to store checkOut = true;
+        $video->setFlag($flag); //When we add video to store checkOut = true;
     }
 
     public function checkOutVideo(string $title): string //should check if movie->flag is true or false
