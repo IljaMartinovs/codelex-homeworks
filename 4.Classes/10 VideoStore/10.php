@@ -21,20 +21,24 @@ $video1->setRating(1);
 $video2->setRating(2);
 $video3->setRating(3);
 
+//Show store inventory
+$store->listInventory();
+echo PHP_EOL;
+
 //Rent The Matrix
 $store->rentVideo(array_search($video1,$videos));
 //Give back The Matrix
 $store->returnVideo(array_search($video1,$videos));
 
+//Show store inventory
+$store->listInventory();
+echo PHP_EOL;
+
 //Rent Godfather II
 $store->rentVideo(array_search($video2,$videos));
 //Check if we have this movie in out store
 echo $store->checkOutVideo($video2->getTitle());
+echo PHP_EOL;
 //Show inventory list
 $store->listInventory();
-
-//Return videos
-$store->returnVideo(array_search($video2,$videos));
-$store->returnVideo(array_search($video3,$videos));
-//Show inventory list
-$store->listInventory();
+echo PHP_EOL;
