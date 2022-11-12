@@ -1,4 +1,5 @@
 <?php
+
 class Video
 {
     public string $title;
@@ -12,14 +13,19 @@ class Video
         $this->rating = $rating;
     }
 
+    public function setFlag(bool $flag): void
+    {
+       $this->flag = $flag;
+    }
+
+    public function getFlag(): bool
+    {
+        return $this->flag;
+    }
+
     public function getTitle(): string
     {
         return $this->title;
-    }
-
-    public function getFlag(): bool // ??
-    {
-        return $this->flag;
     }
 
     public function getRating(): float //Return average rating of movie
@@ -32,10 +38,6 @@ class Video
         return $averageRating/count($this->rating);
     }
 
-    public function checkOut(): bool //Set value true, when movie adds in a store
-    {
-        return $this->flag = true;
-    }
 
     public function setRating(float $rating): void //Set every rating in array
     {
