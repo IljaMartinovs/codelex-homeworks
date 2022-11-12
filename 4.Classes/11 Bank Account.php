@@ -26,35 +26,26 @@ class Account
         return $this->balance += $money;
     }
 
-    public static function transfer(Account $from, Account $to, float $howMuch): float
+    public static function transfer(Account $from, Account $to, float $howMuch): void
     {
         $from->balance -= $howMuch;
-        return $to->balance += $howMuch;
+        $to->balance += $howMuch;
     }
 }
 
-class AccountStart
-{
-    public function Main()
-    {
-        $Matt = new Account( "Matt's account" , 100);
-        $My = new Account("My account", 0);
-        $Matt->withdrawal(100);
-        $My->deposit(100);
-        echo $Matt->Display();
-        echo $My->Display() . "====================================" . PHP_EOL;
+$Matt = new Account( "Matt's account" , 100);
+$My = new Account("My account", 0);
+$Matt->withdrawal(100);
+$My->deposit(100);
+echo $Matt->Display();
+echo $My->Display() . "====================================" . PHP_EOL;
 
-        $A = new Account("Matt's account", 100);
-        $B = new Account("My account", 0);
-        $C = new Account("C account", 0);
-        Account::transfer($A,$B,50);
-        Account::transfer($B,$C,25);
-        echo "After transfer \n";
-        echo "Matt's account balance is now: ". $A->Display();
-        echo "My account balance is now: ". $B->Display();
-        echo "C account balance is now: ". $C->Display();
-    }
-}
-
-$start = new AccountStart();
-$start->Main();
+$A = new Account("Matt's account", 100);
+$B = new Account("My account", 0);
+$C = new Account("C account", 0);
+Account::transfer($A,$B,50);
+Account::transfer($B,$C,25);
+echo "After transfer \n";
+echo "Matt's account balance is now: ". $A->Display();
+echo "My account balance is now: ". $B->Display();
+echo "C account balance is now: ". $C->Display();
