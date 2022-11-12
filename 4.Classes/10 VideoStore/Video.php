@@ -1,44 +1,83 @@
 <?php
+
 class Video
 {
     public string $title;
     public bool $flag;
     public array $rating;
 
-    public function __construct(string $title, bool $flag = false, array $rating = [])
+    public function __construct(string $title, bool $flag = true, array $rating = [] )
     {
         $this->title = $title;
         $this->flag = $flag;
         $this->rating = $rating;
     }
 
-    public function getTitle(): string
+    public function setRating(float $rating): void
     {
-        return $this->title;
+        array_push($this->rating,$rating);
     }
 
-    public function getFlag(): bool // ??
-    {
-        return $this->flag;
-    }
-
-    public function getRating(): float //Return average rating of movie
+    public function getRating(): float
     {
         $averageRating = 0;
         for($i=0; $i < count($this->rating); $i++)
         {
             $averageRating += $this->rating[$i];
         }
-        return $averageRating/count($this->rating);
+        return number_format($averageRating/count($this->rating),2);
     }
 
-    public function checkOut(): bool //Set value true, when movie adds in a store
+}
+class VideoStore
+{
+    private array $movies;
+    private array $notReturnedMovies = [];
+
+    public function addVideo(Video $video)
     {
-        return $this->flag = true;
+        $this->movies[] = $video;
     }
 
-    public function setRating(float $rating): void //Set every rating in array
+    public function rentVideo()
     {
-        $this->rating[] = $rating;
+        $counter = 0;
+        $name = readline("Choose movie to rent (by title ): ");
+
+        foreach ($this->movies as $movie){
+            if($movie->title == $name){
+                array_push($this->notReturnedMovies,$movie->title);
+                unset($this->movies[$counter]);
+                $this->notReturnedMovies = array_filter($this->notReturnedMovies);
+                $this->notReturnedMovies = array_values($this->notReturnedMovies);
+                $this->movies = array_values($this->movies);
+            }
+            else
+                $counter++;
+        }
+    }
+
+    public function getNotReturnedMovies(): void
+    {
+        echo "Not returned movies : \n";
+        foreach ($this->notReturnedMovies as $movie) {
+            echo $movie . "\n";
+        }
+    }
+
+    public function returnVideo(string $title): void
+    {
+        $rating = readline("Enter rating : ");
+        $title = new Video ($title, true);
+        $title->setRating($rating);
+         array_push( $this->movies, $title);
+    }
+
+    public function listInventory(): void
+    {
+        echo "Available movies : \n";
+        foreach ($this->movies as $movie) {
+            echo $movie->title . " | " . $movie->getRating() . "\n";
+        }
     }
 }
